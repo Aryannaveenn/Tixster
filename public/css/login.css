@@ -1,0 +1,133 @@
+
+body {
+  background: linear-gradient(360deg, white, black); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+
+.form-container {
+  background-color: white;
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 1s ease-out;
+}
+
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #2575fc; 
+  outline: none;
+}
+
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2575fc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0a0b0c; 
+  transform: scale(1.05);
+}
+
+
+.switch-link {
+  margin-top: 2rem;
+
+  font-size: 1rem;
+  color: #666;
+}
+
+.switch-link a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.switch-link a:hover {
+  color: black; 
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.logo-container {
+  position: absolute;
+  top: 10px;  
+  left: 10px; 
+  z-index: 1000; 
+  box-shadow: 0 2222px 1000px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  width: 50px; 
+  height: auto;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  
+}
+.form-container:hover {
+  box-shadow: 0 10px 20px rgba(5, 5, 5, 0.2);
+}
+.btn-submit{
+  color: black;
+  outline-style: solid;
+  background-color: whitesmoke;
+}
+.btn-submit:hover{
+  color: white;
+}

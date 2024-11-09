@@ -1,0 +1,42 @@
+/* 
+Thank you for viewing my project, this is a PWA that tries to emulate the functions and layout of the popular app "Ticketek".
+
+Required dependencies:
+
+const express = require('express'); //requires express to be installed
+const bodyParser = require('body-parser'); //requires body-parser to be installed
+const session = require('express-session'); //requires express-session to be stalled
+const bcrypt = require('bcrypt'); //requires bcrypt to be installed for hashing in db
+const sequelize = require('./.database_models/index'); //requires sequelize for different db functions
+const User = require('./.database_models/user.js'); //requires user.js database model to collect/store data
+const Event = require('./.database_models/event.js'); //requires event.js database model to collect/store data
+const Booking = require('./.database_models/booking.js'); //requires booking.js database model to collect/store data
+
+How to run:
+
+npm install connect-flash
+npm install express
+npm install sqlite3
+npm install bcrypt
+npm install sequelize
+npm install body-parser
+npm install express-session
+
+THEN
+
+in /ticketbookingpwa
+node server.js
+
+port: 443 
+
+pages (views):
+index.ejs
+login.ejs
+signup.ejs
+thanku.ejs
+
+database: database.sqlite
+tables: Bookings, Users, Events
+
+License:  GNU GENERAL PUBLIC LICENSE
+*/

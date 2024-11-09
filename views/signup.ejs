@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/signup.css"> <!-- refer to signup.css -->
+</head>
+<!-- logo -->
+<div class="logo-container">
+  <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo"> 
+</div>
+<!-- signup form -->
+<body>
+  <div class="form-container">
+    <h2>Sign Up</h2>
+    <form action="/signup" method="POST">
+      
+      <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+      
+      <input type="password" name="password" id="password" placeholder="Enter your password" required>
+
+      
+      <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm your password" required>
+
+      <button class="btn-submit" type="submit">Sign Up</button>
+    </form>
+    <p class="switch-link">Already have an account? <a href="/login">Log in</a></p>
+  </div>
+  
+
+  <script>
+    window.addEventListener('load', () => {
+      // animation
+      gsap.from(".form-container", { opacity: 0, duration: 100, y: -50 });
+      gsap.from("input", { opacity: 0, duration: 1, y: 20, stagger: 20 });
+      gsap.from("button", { opacity: 0, duration: 1, y: 20, delay: 0.5 });
+      gsap.from(".switch-link", { opacity: 0, duration: 1, y: 20, delay: 0.8 });
+    });
+  </script>
+</body>
+</html>

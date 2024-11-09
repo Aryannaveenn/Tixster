@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login.css"> <!-- refer to login.css -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script> <!-- GSAP for animations -->
+</head>
+<body>
+  <!-- logo-->
+  <div class="logo-container">
+    <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo"> 
+  </div>
+
+  <!-- login form -->
+  <div class="form-container">
+    <h2>Login</h2>
+    <form action="/login" method="POST"> 
+      <input type="email" name="email" id="email" placeholder="Enter your email" required>
+      <input type="password" name="password" id="password" placeholder="Enter your password" required>
+      <button class="btn-submit" type="submit">Login</button>
+    </form>
+
+    <p class="switch-link">Don't have an account? <a href="/signup">Sign up</a></p> <!-- link to signup page-->
+  </div>
+
+
+  <script>
+    window.addEventListener('load', () => {
+      // animations from gsap
+      gsap.from(".form-container", { opacity: 10, duration: 100, y: -50 });
+      gsap.from("input", { opacity: 0, duration: 1, y: 20, stagger: 0.2 });
+      gsap.from("button", { opacity: 0, duration: 1, y: 20, delay: 0.5 });
+      gsap.from(".switch-link", { opacity: 0, duration: 1, y: 20, delay: 0.8 });
+    });
+  </script>
+</body>
+</html>

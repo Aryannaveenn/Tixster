@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <link rel="stylesheet" href="/css/thanku.css">  <!-- refer to thanku.css -->
+</head>
+<body>
+  <!-- thank u message-->
+  <div class="container">
+    <h1>Thank you for booking with us!</h1>
+    <p>You have successfully booked <strong><%= seats %></strong> ticket(s) for the event <strong><%= event.name %></strong>.</p>
+    <p>We wish you a tixster time at <strong><%= event.name %></strong>!</p>
+    <a href="/" class="cta">Back to Events</a> <!-- button back to index-->
+  </div>
+  <div class="logo-container">
+    <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo"> 
+  </div>
+
+<script>  
+  window.addEventListener('load', () => {
+    gsap.from("header", { opacity: 0, duration: 1, y: -50 });
+    gsap.from(".event-card", {
+      opacity: 0, 
+      duration: 1.5, 
+      y: 50, 
+      stagger: 0.3
+    });
+    gsap.from(".book-now-btn", { opacity: 0, duration: 1, y: 20, stagger: 0.2 });
+  });
+</script>
+</body>
+</html>

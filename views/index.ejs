@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tixster PWA</title>
+  <link rel="stylesheet" href="/css/index.css"> <!-- refer to index.css -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script> <!-- GSAP for animations -->
+</head>
+<body>
+  <header>
+    <!--logo-->
+    <div class="logo-container">
+      <img src="/images/logo1.jpg" alt="Tixster Logo" class="logo"> 
+    </div>
+    <h1>Tixster</h1> 
+    <% if (user) { %> <!-- if user logged in-->
+      <p class="welcome-message">Welcome, <%= user.email %> | <a href="/logout" class="switch-link-logout">Logout</a></p>
+    <% } else { %> <!-- if not logged in-->
+      <p class="auth-links"><a href="/signup">Sign up</a> | <a href="/login">Login</a></p>
+    <% } %>
+  </header>
+
+  <main>
+    <!-- display events -->
+    <section class="events-section">
+      <h2>Available Events</h2>
+      <% events.forEach(event => { %>
+        <div class="event-card">
+          <img src="/images/logo1.jpg" type="jpg" alt="Tixster Logo" class="logo1"> 
+          <h3><%= event.name %></h3>
+          <p>Seats available: <strong><%= event.seats %></strong></p>
+          <% if (user) { %> <!-- displays the booking post and post method if logged in-->
+            <form action="/book/<%= event.id %>" method="POST" class="booking-form">
+              <input type="number" name="seats" placeholder="Seats" min="1" max="<%= event.seats %>" required>
+              <button type="submit" class="book-now-btn"><strong>Book Tickets</strong></button>
+              <p><%= event.description %></p>
+            </form>
+          <% } else { %> <!-- displays please login with link if not logged in-->
+            <p class="login-prompt">Please <a href="/login">login</a> to book this event.</p>
+            <p><%= event.description %></p>
+          <% } %>
+        </div>
+      <% }) %>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; Aryan Naveen</p>
+  </footer>
+
+  <!-- service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registered: ', registration);
+          })
+          .catch(error => {
+            console.log('ServiceWorker registration failed: ', error);
+          });
+      });
+    }
+
+    // animation for the events section and cards
+    window.addEventListener('load', () => {
+      gsap.from("header", { opacity: 0, duration: 1, y: -50 });
+      gsap.from(".event-card", {
+        opacity: 0, 
+        duration: 1.5, 
+        y: 50, 
+        stagger: 0.3
+      });
+      gsap.from(".book-now-btn", { opacity: 0, duration: 1, y: 20, stagger: 0.2 });
+    });
+  </script>
+</body>
+</html>
